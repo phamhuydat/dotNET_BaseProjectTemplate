@@ -5,6 +5,7 @@
 	string menuOpenClass = "";
 	string activeClass = "";
 	bool itemIsOpened;
+	bool item2IsOpened;
 }
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
 	<a href="/" class="brand-link">
@@ -12,7 +13,7 @@
 	</a>
 
 	<div class="sidebar">
-		<!-- Sidebar Menu -->
+		<!-- Sidebar Menu --> 
 		<nav class="mt-2">
 			<ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 				@foreach (var item in Model.Items)
@@ -39,7 +40,9 @@
 					{
 						activeClass = " active";
 					}
+					item2IsOpened = item.ChildrenItems2 != null && item.ChildrenItems2.Any(i => i.Controller == currentControllerName);
 
+					// menu cap 1
 					<li class="nav-item@(menuOpenClass)">
 						<a href="@href" class="nav-link@(activeClass)">
 							<i class="nav-icon fas @item.Icon"></i>
@@ -51,6 +54,7 @@
 								}
 							</p>
 						</a>
+
 						@if (href == "#" && item.ChildrenItems != null)
 						{
 							<ul class="nav nav-treeview">
@@ -61,11 +65,32 @@
 										continue;
 									}
 									activeClass = sub.Controller == currentControllerName ? " active" : "";
+									// menu cap 2
 									<li class="nav-item">
 										<a asp-controller="@sub.Controller" asp-action="@sub.Action" class="nav-link@(activeClass)">
 											<i class="fas nav-icon @sub.Icon ml-3"></i>
 											<p>@sub.DisplayText</p>
 										</a>
+										@if (href == "#" )
+										{
+											<ul class="nav nav-treeview">
+												@foreach (var item2 in item.ChildrenItems)
+												{
+													if (!User.IsInPermission(sub.Permission))
+													{
+														continue;
+													}
+													// menu cap 3
+													<li class="nav-item">
+														<a asp-controller="@item2.Controller" asp-action="@item2.Action" class="nav-link@(activeClass)">
+															<i class="fas nav-icon @item2.Icon ml-3"></i>
+															<p>@sub.DisplayText</p>
+														</a>
+													</li>
+												}
+												
+											</ul>
+										}
 									</li>
 								}
 							</ul>

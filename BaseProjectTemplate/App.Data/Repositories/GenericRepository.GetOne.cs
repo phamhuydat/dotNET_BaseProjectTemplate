@@ -47,7 +47,7 @@ namespace App.Data.Repositories
 			return await query.SingleOrDefaultAsync();
 		}
 
-		public virtual async Task<TViewModel> GetOneAsync<TEntity, TViewModel>(
+        public virtual async Task<TViewModel> GetOneAsync<TEntity, TViewModel>(
 			int id,
 			Expression<Func<TEntity, TViewModel>> selector,
 			bool selectFromTrash = false)

@@ -1,5 +1,6 @@
 ﻿using App.Data.Entities;
 using App.Web.ViewModels.Account;
+using App.Web.ViewModels.Category;
 using App.Web.ViewModels.Role;
 using App.Web.ViewModels.User;
 using AutoMapper;
@@ -19,12 +20,22 @@ namespace App.Web.WebConfig
 
 			// Map dữ liệu từ kiểu AppUser sang UserAddOrEditVM
 			CreateMap<AppUser, UserAddOrEditVM>();
+
+            //Map dữ liệu từ kiểu AppCategory sang CategoryAddEditVM
+
+            CreateMap<AppCategory, CategoryAddEditVM>().ReverseMap();
 		}
 
 		public static MapperConfiguration RoleIndexConf = new (mapper =>
 		{
 			// Map dữ liệu từ kiểu AppRole sang RoleListItemVM
 			mapper.CreateMap<AppRole, RoleListItemVM>();
+		});
+
+		public static MapperConfiguration CategoryIndexConf = new (mapper =>
+		{
+			// Map dữ liệu từ kiểu AppCategory sang CategoryListItemVM
+			mapper.CreateMap<AppCategory, CategoryListItemVM>();
 		});
 
 		// Cấu hình mapping cho UserController, action Index

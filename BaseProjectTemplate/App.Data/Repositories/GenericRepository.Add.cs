@@ -42,7 +42,7 @@ namespace App.Data.Repositories
 			for (int i = 0; i < len; i++)
 			{
 				this.BeforeAdd(entities.ElementAt(i));
-			}
+			} 
 			await _db.AddRangeAsync(entities);
 			await _db.SaveChangesAsync();
 		}

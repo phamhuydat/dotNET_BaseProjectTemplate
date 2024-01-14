@@ -27,5 +27,6 @@ namespace App.Web.Components.MainNavBar
 		public string Icon { get; set; }
 		public int Permission { get; set; }
 		public MenuItem[] ChildrenItems { get; set; }
+		public MenuItem[] ChildrenItems2 { get; set; }
 	}
 }

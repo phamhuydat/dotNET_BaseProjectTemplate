@@ -1,0 +1,44 @@
+﻿@model IEnumerable<App.Web.ViewModels.Category.CategoryListItemVM>;
+@{
+    ViewData["Title"] = "Category";
+}
+<div>
+    <h2>Hello word</h2>
+    @if(User.IsInPermission(AuthConst.AppCategory.CREATE)){
+        <a class="btn btn-success mb-2 mt-2" asp-action="Create" asp-controller="Category">Add Category</a>
+    }
+
+    <table class="table">   
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <th scope="row">1</th>
+                    <td>@item.Name</td>
+                    <td>@item.Description</td>
+                    <td>
+                        @if (User.IsInPermission(AuthConst.AppCategory.EDIT))
+                        {
+                            <a asp-action="Update" asp-route-id="@item.Id" asp-controller="Category"
+                               class="btn btn-outline-secondary btn-sm"><i class="fa fas fa-pen"></i></a>
+                        }
+                        @if (User.IsInPermission(AuthConst.AppRole.DELETE))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id" asp-controller="Category"
+                               class="btn btn-outline-danger btn-sm"><i class="fa fas fa-trash"></i></a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

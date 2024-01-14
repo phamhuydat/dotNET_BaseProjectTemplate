@@ -30,7 +30,7 @@ namespace App.Data.Repositories
 			return query;
 		}
 
-		public virtual IQueryable<TViewModel> GetAll<TEntity, TViewModel>(
+		public virtual IQueryable<TViewModel> GetAll<TEntity, TViewModel>( // IQueryable query liên tiếp 
 			MapperConfiguration mapperConfig,
 			bool selectFromTrash = false,
 			Expression<Func<TEntity, bool>> where = null)
@@ -38,7 +38,7 @@ namespace App.Data.Repositories
 		{
 			var defaultWhere = GetDefaultWhereExpr<TEntity>(selectFromTrash);
 			var query = _db.Set<TEntity>()
-						.AsNoTracking()
+						.AsNoTracking() // đừng theo dõi
 						.Where(defaultWhere);
 			if (where != null)
 			{

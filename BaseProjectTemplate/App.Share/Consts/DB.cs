@@ -37,5 +37,11 @@ namespace App.Share.Consts
 			public const short GROUPNAME_LENGHT				= 100;
 			public const short DESC_LENGHT					= 100;
 		}
+		public static class AppCategory
+		{
+			public const string TABLE_NAME					="AppCategory";
+			public const short USERNAME_LENGTH				= 200;
+			public const short DESCRIPTION_LENGTH			= 500;
+		}
 	}
 }

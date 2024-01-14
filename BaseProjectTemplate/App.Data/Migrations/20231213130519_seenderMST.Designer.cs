@@ -4,14 +4,16 @@ using App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WebAppDbContext))]
-    partial class WebAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231213130519_seenderMST")]
+    partial class seenderMST
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -567,7 +569,7 @@ namespace App.Data.Migrations
                             Code = "CREATE",
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Thêm danh mục",
-                            GroupName = "Quản lý danh mục",
+                            GroupName = "Quản lý người dùng",
                             Table = "AppCategory"
                         },
                         new
@@ -576,7 +578,7 @@ namespace App.Data.Migrations
                             Code = "VIEW",
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Xem danh mục",
-                            GroupName = "Quản lý danh mục",
+                            GroupName = "Quản lý người dùng",
                             Table = "AppCategory"
                         },
                         new
@@ -585,7 +587,7 @@ namespace App.Data.Migrations
                             Code = "EDIT",
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Edit danh mục",
-                            GroupName = "Quản lý danh mục",
+                            GroupName = "Quản lý người dùng",
                             Table = "AppCategory"
                         },
                         new
@@ -594,7 +596,7 @@ namespace App.Data.Migrations
                             Code = "EDIT",
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Edit danh mục",
-                            GroupName = "Quản lý danh mục",
+                            GroupName = "Quản lý người dùng",
                             Table = "AppCategory"
                         },
                         new
@@ -603,7 +605,7 @@ namespace App.Data.Migrations
                             Code = "DELETE",
                             CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Desc = "Delete danh mục",
-                            GroupName = "Quản lý danh mục",
+                            GroupName = "Quản lý người dùng",
                             Table = "AppCategory"
                         });
                 });

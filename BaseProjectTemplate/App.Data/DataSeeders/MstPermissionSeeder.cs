@@ -162,6 +162,59 @@ namespace App.Data.DataSeeders
 				}
 			);
 			#endregion
+
+			#region Data liên quản bảng AppCategory
+			// Permission liên quan đến bảng AppCategory
+			groupName = "Quản lý danh mục";
+			builder.HasData(
+				new MstPermission
+				{
+					Id = AuthConst.AppCategory.CREATE,
+					Code = "CREATE",
+					Table = DB.AppCategory.TABLE_NAME,
+					GroupName = groupName,
+					Desc = "Thêm danh mục",
+					CreatedDate = now
+				},
+				new MstPermission
+				{
+					Id = AuthConst.AppCategory.VIEW,
+					Code = "VIEW",
+					Table = DB.AppCategory.TABLE_NAME,
+					GroupName = groupName,
+					Desc = "Xem danh mục",
+					CreatedDate = now
+				},
+				new MstPermission
+				{
+					Id = AuthConst.AppCategory.EDIT,
+					Code = "EDIT",
+					Table = DB.AppCategory.TABLE_NAME,
+					GroupName = groupName,
+					Desc = "Edit danh mục",
+					CreatedDate = now
+				},
+				new MstPermission
+				{
+					Id = AuthConst.AppCategory.UPDATE,
+					Code = "EDIT",
+					Table = DB.AppCategory.TABLE_NAME,
+					GroupName = groupName,
+					Desc = "Edit danh mục",
+					CreatedDate = now
+				},
+				new MstPermission
+				{
+					Id = AuthConst.AppCategory.DELETE,
+					Code = "DELETE",
+					Table = DB.AppCategory.TABLE_NAME,
+					GroupName = groupName,
+					Desc = "Delete danh mục",
+					CreatedDate = now
+				}
+			);
+			#endregion
 		}
+
 	}
 }

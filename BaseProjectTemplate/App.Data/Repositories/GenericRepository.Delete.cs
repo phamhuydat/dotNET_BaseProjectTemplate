@@ -37,7 +37,7 @@ namespace App.Data.Repositories
 			{
 				updateUserId = CurrentUserId();
 			}
-			var query = $"UPDATE FROM {tableName} SET DeletedDate = GETDATE(), UpdatedBy = {updateUserId} WHERE Id = {id}";
+			var query = $"UPDATE {tableName} SET DeletedDate = GETDATE(), UpdatedBy = {updateUserId} WHERE Id = {id}";
 			LogDebugQuery(query);
 			await _db.Database.ExecuteSqlRawAsync(query);
 		}
@@ -45,7 +45,7 @@ namespace App.Data.Repositories
 		public virtual async Task HardDeleteAsync<TEntity>(int id) where TEntity : AppEntityBase
 		{
 			var tableName = GetTableName<TEntity>();
-			var deleteQuery = $"DELETE FROM {tableName} WHERE Id = {id}";
+			var deleteQuery = $"DELETE {tableName} WHERE Id = {id}";
 			LogDebugQuery(deleteQuery);
 			await _db.Database.ExecuteSqlRawAsync(deleteQuery);
 		}
@@ -57,7 +57,7 @@ namespace App.Data.Repositories
 				throw new Exception("Danh sách ID rỗng");
 			}
 			var tableName = GetTableName<TEntity>();
-			var deleteQuery = $"DELETE FROM {tableName} WHERE Id IN ({string.Join(',', ids)})";
+			var deleteQuery = $"DELETE {tableName} WHERE Id IN ({string.Join(',', ids)})";
 			LogDebugQuery(deleteQuery);
 			await _db.Database.ExecuteSqlRawAsync(deleteQuery);
 		}

@@ -16,7 +16,7 @@ namespace App.Data.DataSeeders
 		public static void SeedData(this EntityTypeBuilder<AppRole> builder)
 		{
 			var now = new DateTime(year: 2021, month: 12, day: 10);
-
+			
 			// Tạo vai trò
 			var roleAdmin = new AppRole
 			{

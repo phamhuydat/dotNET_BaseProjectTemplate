@@ -20,10 +20,10 @@ namespace App.Web.Components.Permission
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
 			var data = await repository
-							.GetAllMst<MstPermission>()
-							.AsEnumerable()
-							.GroupBy(x => x.GroupName)
-							.ToListAsync();
+					.GetAllMst<MstPermission>()
+					.AsEnumerable()
+					.GroupBy(x => x.GroupName)
+					.ToListAsync();
 			return View(data);
 		}
 	}

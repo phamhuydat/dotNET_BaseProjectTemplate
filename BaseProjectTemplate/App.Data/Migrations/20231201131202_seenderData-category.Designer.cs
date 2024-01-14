@@ -4,14 +4,16 @@ using App.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace App.Data.Migrations
 {
     [DbContext(typeof(WebAppDbContext))]
-    partial class WebAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231201131202_seenderData-category")]
+    partial class seenderDatacategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -560,51 +562,6 @@ namespace App.Data.Migrations
                             Desc = "Quản lý file hệ thống",
                             GroupName = "Quản lý file",
                             Table = "FileManager"
-                        },
-                        new
-                        {
-                            Id = 1202,
-                            Code = "CREATE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Thêm danh mục",
-                            GroupName = "Quản lý danh mục",
-                            Table = "AppCategory"
-                        },
-                        new
-                        {
-                            Id = 1201,
-                            Code = "VIEW",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Xem danh mục",
-                            GroupName = "Quản lý danh mục",
-                            Table = "AppCategory"
-                        },
-                        new
-                        {
-                            Id = 1203,
-                            Code = "EDIT",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Edit danh mục",
-                            GroupName = "Quản lý danh mục",
-                            Table = "AppCategory"
-                        },
-                        new
-                        {
-                            Id = 1204,
-                            Code = "EDIT",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Edit danh mục",
-                            GroupName = "Quản lý danh mục",
-                            Table = "AppCategory"
-                        },
-                        new
-                        {
-                            Id = 1206,
-                            Code = "DELETE",
-                            CreatedDate = new DateTime(2021, 11, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Desc = "Delete danh mục",
-                            GroupName = "Quản lý danh mục",
-                            Table = "AppCategory"
                         });
                 });
 
